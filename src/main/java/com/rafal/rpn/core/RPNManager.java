@@ -14,7 +14,7 @@ import static com.rafal.rpn.utils.ExpressionParser.hasValidExpression;
 import static java.lang.String.format;
 
 @Component
-public class RPNManger {
+public class RPNManager {
 
     @Autowired
     private RPNCalculator rpnCalculator;

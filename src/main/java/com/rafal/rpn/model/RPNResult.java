@@ -3,9 +3,9 @@ package com.rafal.rpn.model;
 public final class RPNResult {
 
     private final OperationResult status;
-    private final Long result;
+    private final Double result;
 
-    public RPNResult(OperationResult status, Long result) {
+    public RPNResult(OperationResult status, Double result) {
         this.status = status;
         this.result = result;
     }
@@ -14,7 +14,7 @@ public final class RPNResult {
         return status;
     }
 
-    public Long getResult() {
+    public Double getResult() {
         return result;
     }
 }

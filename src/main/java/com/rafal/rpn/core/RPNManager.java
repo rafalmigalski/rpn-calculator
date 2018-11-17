@@ -25,15 +25,15 @@ public class RPNManager {
 
     public RPNResult calculate(String input) {
         try {
-            Long result = calculateBasedOnInput(input);
+            Double result = calculateBasedOnInput(input);
             return new RPNResult(SUCCESS, result);
         } catch (Exception e) {
             System.out.println(format("Cannot calculate rpn expression: %s ", e));
-            return new RPNResult(FAILED, -1L);
+            return new RPNResult(FAILED, -1D);
         }
     }
 
-    private Long calculateBasedOnInput(String input) throws OperationNotSupportedException {
+    private Double calculateBasedOnInput(String input) throws OperationNotSupportedException {
         return hasValidExpression(input) ? rpnCalculator.calculate(input) : rpnCalculator.calculate(fileRepository.fetch());
     }
 }

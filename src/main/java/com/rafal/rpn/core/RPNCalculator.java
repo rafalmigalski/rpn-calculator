@@ -12,12 +12,12 @@ import static org.apache.commons.lang3.math.NumberUtils.isParsable;
 @Component
 class RPNCalculator {
 
-    public Long calculate(String expression) throws OperationNotSupportedException {
-        Stack<Long> rpn = new Stack<>();
+    public Double calculate(String expression) throws OperationNotSupportedException {
+        Stack<Double> rpn = new Stack<>();
 
         for (String value : parseExpression(expression)) {
             if (isParsable(value)) {
-                handleDigit(Long.parseLong(value), rpn);
+                handleDigit(Double.parseDouble(value), rpn);
             } else {
                 handleOperand(value, rpn);
             }
@@ -25,11 +25,11 @@ class RPNCalculator {
         return rpn.pop();
     }
 
-    private void handleDigit(Long value, Stack<Long> rpn) {
+    private void handleDigit(Double value, Stack<Double> rpn) {
         rpn.push(value);
     }
 
-    private void handleOperand(String operation, Stack<Long> rpn) throws OperationNotSupportedException {
+    private void handleOperand(String operation, Stack<Double> rpn) throws OperationNotSupportedException {
         rpn.push(operate(operation, rpn.pop(), rpn.pop()));
     }
 }

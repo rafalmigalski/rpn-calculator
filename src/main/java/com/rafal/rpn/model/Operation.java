@@ -16,7 +16,7 @@ public enum Operation {
         this.operation = operation;
     }
 
-    public static Long operate(String operation, Long x , Long y) throws OperationNotSupportedException {
+    public static Double operate(String operation, Double x , Double y) throws OperationNotSupportedException {
         switch (fromString(operation)) {
             case ADDITION:       return y + x;
             case SUBTRACTION:    return y - x;

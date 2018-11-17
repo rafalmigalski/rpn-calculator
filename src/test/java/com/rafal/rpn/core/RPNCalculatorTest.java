@@ -14,17 +14,17 @@ public class RPNCalculatorTest {
     public void shouldCalculateRPNExpression() throws OperationNotSupportedException {
         String givenExpression = "3 11 + 5 -";
 
-        Long result = rpnCalculator.calculate(givenExpression);
+        Double result = rpnCalculator.calculate(givenExpression);
 
-        assertEquals(Long.valueOf(9L), result);
+        assertEquals(Double.valueOf(9), result);
     }
 
     @Test(expected = OperationNotSupportedException.class)
     public void shouldWarnNotSupported() throws OperationNotSupportedException {
         String givenExpression = "3 11 + 5 *";
 
-        Long result = rpnCalculator.calculate(givenExpression);
+        Double result = rpnCalculator.calculate(givenExpression);
 
-        assertEquals(Long.valueOf(9L), result);
+        assertEquals(Double.valueOf(9), result);
     }
 }

@@ -1,5 +1,7 @@
 package com.rafal.rpn.model;
 
+import com.rafal.rpn.model.operations.*;
+
 public final class OperationFactory {
 
     public static Operation valueOf(String operation) {

@@ -1,4 +1,4 @@
-package com.rafal.rpn.model;
+package com.rafal.rpn.model.operations;
 
 public class MulOperation implements Operation<Double> {
     @Override

@@ -27,7 +27,7 @@ public class RPNCalculatorTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldWarnInvalidExpression() {
-        String givenExpression = "3 11 + 5 * &&";
+        String givenExpression = "3 11 + 5 * -";
 
         rpnCalculator.calculate(givenExpression);
     }

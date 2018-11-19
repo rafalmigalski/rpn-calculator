@@ -1,4 +1,4 @@
-package com.rafal.rpn.model;
+package com.rafal.rpn.model.operations;
 
 public class AddOperation implements Operation<Double> {
     @Override

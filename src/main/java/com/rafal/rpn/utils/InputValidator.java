@@ -13,6 +13,4 @@ public final class InputValidator {
         }
         return Boolean.TRUE;
     }
-
-    //TODO: Check for valid expression itself to prevent exception with stack.
 }

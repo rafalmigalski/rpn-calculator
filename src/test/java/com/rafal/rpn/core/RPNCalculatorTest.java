@@ -2,8 +2,7 @@ package com.rafal.rpn.core;
 
 import org.junit.Test;
 
-import javax.naming.OperationNotSupportedException;
-
+import static java.lang.Double.valueOf;
 import static org.junit.Assert.assertEquals;
 
 public class RPNCalculatorTest {
@@ -11,20 +10,25 @@ public class RPNCalculatorTest {
     private RPNCalculator rpnCalculator = new RPNCalculator();
 
     @Test
-    public void shouldCalculateRPNExpression() throws OperationNotSupportedException {
-        String givenExpression = "3 11 + 5 -";
+    public void shouldCalculateRPNExpression() {
+        String givenExpression = "9 5 3 + 2 4 ^ - + ";
 
         Double result = rpnCalculator.calculate(givenExpression);
 
-        assertEquals(Double.valueOf(9), result);
+        assertEquals(valueOf(1), result);
     }
 
-    @Test(expected = OperationNotSupportedException.class)
-    public void shouldWarnNotSupported() throws OperationNotSupportedException {
-        String givenExpression = "3 11 + 5 *";
+    @Test(expected = UnsupportedOperationException.class)
+    public void shouldWarnOperationNotSupported() {
+        String givenExpression = "3 11 + 5 &&";
 
-        Double result = rpnCalculator.calculate(givenExpression);
+        rpnCalculator.calculate(givenExpression);
+    }
 
-        assertEquals(Double.valueOf(9), result);
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldWarnInvalidExpression() {
+        String givenExpression = "3 11 + 5 * &&";
+
+        rpnCalculator.calculate(givenExpression);
     }
 }

@@ -6,12 +6,10 @@ import com.rafal.rpn.persistance.FileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.naming.OperationNotSupportedException;
-
 import static com.rafal.rpn.model.OperationResult.FAILED;
 import static com.rafal.rpn.model.OperationResult.SUCCESS;
-import static com.rafal.rpn.utils.ExpressionParser.hasValidExpression;
 import static java.lang.String.format;
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 @Component
 public class RPNManager {
@@ -33,7 +31,7 @@ public class RPNManager {
         }
     }
 
-    private Double calculateBasedOnInput(String input) throws OperationNotSupportedException {
-        return hasValidExpression(input) ? rpnCalculator.calculate(input) : rpnCalculator.calculate(fileRepository.fetch());
+    private Double calculateBasedOnInput(String input) {
+        return isNotBlank(input) ? rpnCalculator.calculate(input) : rpnCalculator.calculate(fileRepository.fetch());
     }
 }
